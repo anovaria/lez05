@@ -10,6 +10,35 @@ public class Alunno {
     private int voto;
     private LocalDateTime datanascita; //per poter fare questo devo creare il metodo getDataNasc() sotto
     private String segnoZod;
+    private Esame elencoEsami[];
+
+
+    public String getLibretto() {
+        String ris = "";
+        ris = "esami fatti: \n";
+        for (int i = 0; i < elencoEsami.length; i++) {
+            if (elencoEsami[i] != null) {
+                ris += (i + 1) + " - " + elencoEsami[i].getNomeEsame() + " " + elencoEsami[i].getVoto();
+            }
+            }
+            return ris;
+        }
+    
+        //aagiungi esame al libretto
+
+        /**
+         *
+         * @param newEsame
+         */
+    public void addEsame(Esame newEsame) {
+        for (int i = 0; i < elencoEsami.length; i++) {
+            if (elencoEsami[i] == null) {
+                elencoEsami[i] = newEsame;
+                break;
+            }
+        }
+
+    }
 
     //costruttore: si possono fare piu costruttori con stesso nome ma con diversi parametri 
     public Alunno() {
@@ -29,6 +58,14 @@ public class Alunno {
             default:
                 segnoZod = "non valido";
         }
+    }
+
+    public Esame[] getElencoEsami() {
+        return elencoEsami;
+    }
+
+    public void setElencoEsami(Esame[] elencoEsami) {
+        this.elencoEsami = elencoEsami;
     }
 
     public LocalDateTime getDataNasc() {
@@ -73,6 +110,13 @@ public class Alunno {
         this.voto = voto;
         this.datanascita = datanascita;
         this.segnoZod = segnoZod;
+    }
+
+    public Alunno(String cognome, String nome, int numeroEsami) {
+        this.cognome = cognome;
+        this.nome = nome;
+        elencoEsami = new Esame[numeroEsami];
+        this.datanascita = LocalDateTime.now();
     }
 
     public Alunno(String cognome) {

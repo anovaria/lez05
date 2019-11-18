@@ -11,6 +11,10 @@ public class MainStart {
 
     public static void main(String[] args) throws InterruptedException {
         Alunno a1= new Alunno();
+        Alunno a3= new Alunno("pippo","pluto",3);   
+        Esame esameammissione = new Esame("Esame 1", 6);
+        a3.addEsame(esameammissione);
+        System.out.println(a3.getLibretto());
         a1.setNome("Mario");
         a1.setCognome("Rossi");
         a1.setVoto(10);
