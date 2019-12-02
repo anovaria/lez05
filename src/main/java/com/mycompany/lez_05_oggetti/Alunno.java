@@ -11,6 +11,7 @@ public class Alunno {
     private LocalDateTime datanascita; //per poter fare questo devo creare il metodo getDataNasc() sotto
     private String segnoZod;
     private Esame elencoEsami[];
+    private Esame Esameammissione;
 
 
     public String getLibretto() {
